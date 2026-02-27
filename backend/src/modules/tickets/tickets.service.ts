@@ -38,13 +38,22 @@ export class TicketsService {
             where.status = status;
         }
 
-        return prisma.ticket.findMany({
+        return await prisma.ticket.findMany({
             where,
             include: {
-                user: true
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        role: true,
+                        createdAt: true,
+                        updatedAt: true
+                    }
+                }
             },
             orderBy: {
-                createdAt: "desc"
+                createdAt: 'desc'
             }
         });
     }
