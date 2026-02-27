@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./modules/auth/auth.routes";
 import usersRoutes from "./modules/users/users.routes";
+import { ticketsRoutes } from "./modules/tickets/tickets.routes";
 
 export const app = express();
 
@@ -13,3 +14,4 @@ app.get("/", (req, res) => {
 });
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
+app.use("/tickets", ticketsRoutes);
