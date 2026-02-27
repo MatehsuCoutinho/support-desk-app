@@ -32,33 +32,44 @@ export default function Login() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Login</h1>
+        <p className="auth-logo">Support<span>Desk</span></p>
+
+        <h1>Entrar</h1>
+        <p className="auth-subtitle">Acesse sua conta para continuar</p>
 
         <form onSubmit={handleSubmit} className="auth-form">
           {error && <div className="auth-error">{error}</div>}
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <div className="auth-field">
+            <label className="auth-label">Email</label>
+            <input
+              className="auth-input"
+              type="email"
+              placeholder="seu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="auth-field">
+            <label className="auth-label">Senha</label>
+            <input
+              className="auth-input"
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-          <button type="submit" disabled={loading}>
+          <button type="submit" className="auth-submit" disabled={loading}>
             {loading ? "Entrando..." : "Entrar"}
           </button>
         </form>
 
-        <p style={{ marginTop: 15, textAlign: "center" }}>
+        <p className="auth-footer">
           Não tem conta? <Link to="/register">Criar conta</Link>
         </p>
       </div>

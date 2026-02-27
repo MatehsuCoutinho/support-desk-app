@@ -1,32 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap");
+
+/* ===== TOKENS ===== */
+
+:root {
+  --bg:           #080c14;
+  --surface:      #0e1623;
+  --surface-2:    #162032;
+  --surface-3:    #1e2d42;
+  --border:       rgba(99, 163, 255, 0.08);
+  --border-hover: rgba(99, 163, 255, 0.18);
+
+  --text:         #e8f0fe;
+  --text-muted:   #6b82a8;
+  --text-faint:   #3d5270;
+
+  --accent:       #4f8ef7;
+  --accent-glow:  rgba(79, 142, 247, 0.2);
+
+  --amber:        #f59e0b;
+  --amber-bg:     rgba(245, 158, 11, 0.12);
+  --blue:         #3b82f6;
+  --blue-bg:      rgba(59, 130, 246, 0.12);
+  --green:        #10b981;
+  --green-bg:     rgba(16, 185, 129, 0.12);
+
+  --radius-sm:    6px;
+  --radius-md:    12px;
+  --radius-lg:    18px;
+
+  --font-display: "Syne", sans-serif;
+  --font-body:    "DM Sans", sans-serif;
+}
+
+/* ===== RESET ===== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
 }
 
 body {
-  background-color: #f4f6f8;
-  color: #333;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3a50;
+}
+
+/* ===== ELEMENTOS BASE ===== */
 
 button {
   cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 6px;
-  border: none;
-  background-color: #2563eb;
-  color: white;
-  transition: 0.2s;
+  font-family: var(--font-body);
 }
 
-button:hover {
-  opacity: 0.9;
+input,
+textarea {
+  font-family: var(--font-body);
 }
 
-input {
-  padding: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
+a {
+  color: inherit;
 }

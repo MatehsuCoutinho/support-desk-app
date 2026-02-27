@@ -33,40 +33,55 @@ export default function Register() {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h1>Registrar</h1>
+        <p className="auth-logo">Support<span>Desk</span></p>
+
+        <h1>Criar conta</h1>
+        <p className="auth-subtitle">Preencha os dados para se registrar</p>
 
         <form onSubmit={handleSubmit} className="auth-form">
           {error && <div className="auth-error">{error}</div>}
 
-          <input
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+          <div className="auth-field">
+            <label className="auth-label">Nome</label>
+            <input
+              className="auth-input"
+              placeholder="Seu nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </div>
 
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <div className="auth-field">
+            <label className="auth-label">Email</label>
+            <input
+              className="auth-input"
+              type="email"
+              placeholder="seu@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            placeholder="Senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="auth-field">
+            <label className="auth-label">Senha</label>
+            <input
+              className="auth-input"
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
 
-          <button type="submit" disabled={loading}>
+          <button type="submit" className="auth-submit" disabled={loading}>
             {loading ? "Criando..." : "Criar conta"}
           </button>
         </form>
 
-        <p style={{ marginTop: 15, textAlign: "center" }}>
+        <p className="auth-footer">
           Já tem conta? <Link to="/login">Entrar</Link>
         </p>
       </div>

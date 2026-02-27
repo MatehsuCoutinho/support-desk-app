@@ -9,26 +9,23 @@ export function AppLayout() {
   return (
     <div className="layout">
       <header className="navbar">
-        <h2>Support Desk</h2>
+        <h2>Support<span>Desk</span></h2>
 
         <nav className="navbar-center">
-          <NavLink to="/" className="nav-link">
+          <NavLink to="/" end className="nav-link">
             Dashboard
           </NavLink>
-
-          <NavLink to="/tickets" className="nav-link">
+          <NavLink to="/tickets" end className="nav-link">
             Tickets
           </NavLink>
-
           <NavLink to="/tickets/new" className="nav-link">
             Criar Ticket
           </NavLink>
         </nav>
 
-        {/* 🔥 LADO DIREITO */}
         <div className="navbar-right">
-          <span>Olá, {user?.name}</span>
-          <button onClick={logout}>Sair</button>
+          <span>Olá, <strong>{user?.name}</strong></span>
+          <button className="btn-logout" onClick={logout}>Sair</button>
         </div>
       </header>
 
