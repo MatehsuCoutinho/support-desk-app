@@ -45,3 +45,19 @@
   border: none;
   font-size: 12px;
 }
+
+.ticket-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.ticket-actions {
+  margin-top: 10px;
+}
+
+.ticket-actions button {
+  margin-right: 8px;
+}

@@ -2,11 +2,21 @@ import { useEffect, useState } from "react";
 import { getTickets, type Ticket } from "../services/tickets.service";
 import { Link } from "react-router-dom";
 import { updateTicketStatus } from "../services/tickets.service";
+import CommentsSection from "../comments/CommentsSection";
 import "./Tickets.css";
 
 export default function TicketsList() {
     const [tickets, setTickets] = useState<Ticket[]>([]);
     const [loading, setLoading] = useState(true);
+    const [expandedTicketId, setExpandedTicketId] = useState(null);
+
+    function toggleComments(ticketId: any) {
+        if (expandedTicketId === ticketId) {
+            setExpandedTicketId(null);
+        } else {
+            setExpandedTicketId(ticketId);
+        }
+    }
 
     useEffect(() => {
         async function loadTickets() {
@@ -58,23 +68,36 @@ export default function TicketsList() {
 
             <div className="tickets-list">
                 {tickets.map((ticket) => (
-                    <div key={ticket.id} className="ticket-item">
+                    <div key={ticket.id} className="ticket-card">
                         <h3>{ticket.title}</h3>
+
+                        <p>Status: {ticket.status}</p>
+
                         <p>{ticket.description}</p>
-                        <select
-                            value={ticket.status}
-                            onChange={(e) =>
-                                handleStatusChange(
-                                    ticket.id,
-                                    e.target.value as "OPEN" | "IN_PROGRESS" | "CLOSED"
-                                )
-                            }
-                            className={`status ${ticket.status}`}
-                        >
-                            <option value="OPEN">OPEN</option>
-                            <option value="IN_PROGRESS">IN_PROGRESS</option>
-                            <option value="CLOSED">CLOSED</option>
-                        </select>
+
+                        <div className="ticket-actions">
+                            <button onClick={() => handleStatusChange(ticket.id, "OPEN")}>
+                                Abrir
+                            </button>
+
+                            <button onClick={() => handleStatusChange(ticket.id, "IN_PROGRESS")}>
+                                Em andamento
+                            </button>
+
+                            <button onClick={() => handleStatusChange(ticket.id, "CLOSED")}>
+                                Fechar
+                            </button>
+
+                            <button onClick={() => toggleComments(ticket.id)}>
+                                {expandedTicketId === ticket.id
+                                    ? "Fechar comentários"
+                                    : "Ver comentários"}
+                            </button>
+                        </div>
+
+                        {expandedTicketId === ticket.id && (
+                            <CommentsSection ticketId={ticket.id} />
+                        )}
                     </div>
                 ))}
             </div>
