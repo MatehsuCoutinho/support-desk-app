@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "supersecret";
 
 export class AuthService {
-    static async register(name: string, email: string, password: string, role: "USER" | "ADMIN" | "AGENT" = "USER") {
+    static async register(name: string, email: string, password: string, role: "USER" | "ADMIN" | "AGENT") {
         const existingUser = await prisma.user.findUnique({
             where: { email },
         });
