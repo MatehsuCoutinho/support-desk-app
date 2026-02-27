@@ -1,22 +1,17 @@
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
+import { DashboardCard } from "../components/DashboardCard";
+import "./Dashboard.css";
 
 export default function Dashboard() {
-  const { login, logout, token } = useContext(AuthContext);
-
   return (
-    <div>
+    <div className="dashboard">
       <h1>Dashboard</h1>
 
-      <p>Token atual: {token}</p>
-
-      <button onClick={() => login("TOKEN_FAKE_123")}>
-        Simular Login
-      </button>
-
-      <button onClick={logout}>
-        Logout
-      </button>
+      <div className="dashboard-grid">
+        <DashboardCard title="Total de Tickets" value={128} />
+        <DashboardCard title="Abertos" value={34} />
+        <DashboardCard title="Em Andamento" value={52} />
+        <DashboardCard title="Concluídos" value={42} />
+      </div>
     </div>
   );
 }
