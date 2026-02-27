@@ -1,5 +1,7 @@
 import express from "express";
 import cors from "cors";
+import swaggerUi from "swagger-ui-express";
+import { swaggerSpec } from "./config/swagger";
 import authRoutes from "./modules/auth/auth.routes";
 import usersRoutes from "./modules/users/users.routes";
 import { ticketsRoutes } from "./modules/tickets/tickets.routes";
@@ -17,3 +19,5 @@ app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/tickets", ticketsRoutes);
 app.use("/comments", commentsRoutes);
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
