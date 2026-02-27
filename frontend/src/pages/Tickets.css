@@ -1,0 +1,39 @@
+.tickets-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.tickets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ticket-item {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status.OPEN {
+  background-color: #fef3c7;
+}
+
+.status.IN_PROGRESS {
+  background-color: #dbeafe;
+}
+
+.status.DONE {
+  background-color: #dcfce7;
+}
