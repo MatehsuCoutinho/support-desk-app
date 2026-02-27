@@ -5,7 +5,6 @@ import usersRoutes from "./modules/users/users.routes";
 import { ticketsRoutes } from "./modules/tickets/tickets.routes";
 import { commentsRoutes } from "./modules/comments/comments.routes";
 
-
 export const app = express();
 
 app.use(cors());
