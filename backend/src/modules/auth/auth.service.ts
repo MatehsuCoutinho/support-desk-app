@@ -2,7 +2,7 @@ import { prisma } from "../../database/prisma";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "supersecret";
+const JWT_SECRET = process.env.JWT_SECRET 
 
 export class AuthService {
     static async register(name: string, email: string, password: string, role: "USER" | "ADMIN" | "AGENT") {
